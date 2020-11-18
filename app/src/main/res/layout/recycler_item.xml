@@ -10,18 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/post_img"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/default_img" />
+            android:layout_height="400dp"
+            android:src="@drawable/default_img"
+            android:contentDescription="@string/album_image"
+            android:onClick="launchSecondActivity"/>
 
         <TextView
             android:id="@+id/post_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text=""
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/songs"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

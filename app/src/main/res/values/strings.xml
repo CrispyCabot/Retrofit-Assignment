@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Retrofit Assignment</string>
+    <string name="app_name">Album Info</string>
+    <string name="album_image">Album image</string>
 </resources>

@@ -5,7 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDoalog;
     private CustomAdapter adapter;
     private RecyclerView recyclerView;
+
+    public static final String EXTRA_SONGS = "chris.bridewell.retrofitassignment.extra.SONGS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private void generateDataList(List<RetroPhoto> photoList) {
@@ -58,5 +64,15 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+    }
+
+    public void launchSecondActivity(View view) {
+        Intent intent = new Intent(this, AlbumDetails.class);
+        //Find which image was clicked
+        ViewGroup vgroup = (ViewGroup)view.getParent();
+        String songs = ((TextView) vgroup.getChildAt(2)).getText().toString();
+        Log.d("poopy", songs);
+        intent.putExtra(EXTRA_SONGS, songs);
+        startActivity(intent);
     }
 }

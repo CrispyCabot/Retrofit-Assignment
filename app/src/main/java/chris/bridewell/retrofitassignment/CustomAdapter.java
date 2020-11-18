@@ -1,6 +1,7 @@
 package chris.bridewell.retrofitassignment;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         public final View mView;
 
         TextView desc;
+        TextView songs;
         private ImageView coverImage;
 
         CustomViewHolder(View itemView) {
@@ -37,6 +39,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
             desc = mView.findViewById(R.id.post_text);
             coverImage = mView.findViewById(R.id.post_img);
+            songs = mView.findViewById(R.id.songs);
         }
     }
 
@@ -50,6 +53,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         holder.desc.setText(dataList.get(position).getText());
+        holder.songs.setText(dataList.get(position).getSongs());
+        Log.d("poopy", dataList.get(position).getSongs());
 
         Picasso.Builder builder = new Picasso.Builder(context);
         builder.downloader(new OkHttp3Downloader(context));

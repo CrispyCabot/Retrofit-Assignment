@@ -8,10 +8,13 @@ public class RetroPhoto {
     private String imgAddress;
     @SerializedName("text")
     private String text;
+    @SerializedName("songs")
+    private String songs;
 
-    public RetroPhoto(String imgAddress, String text) {
+    public RetroPhoto(String imgAddress, String text, String songs) {
         this.imgAddress = imgAddress;
         this.text = text;
+        this.songs = songs;
     }
 
     public String getImgAddress() {
@@ -28,5 +31,13 @@ public class RetroPhoto {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public void setSongs(String songs) {
+        this.songs = songs;
+    }
+
+    public String getSongs() {
+        return this.songs;
     }
 }
